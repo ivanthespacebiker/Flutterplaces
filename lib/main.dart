@@ -1,35 +1,33 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MySecondWidjet(),
+    return new MaterialApp(
+      title: 'My title',
+      home: MyFirstWidget(),
     );
   }
 }
 
 class MyFirstWidget extends StatelessWidget {
-  int _callBuildCounter = 0;
+
   @override
   Widget build(BuildContext context) {
-    _callBuildCounter += 1;
-    print('build count: $_callBuildCounter');
+    print(contextType(context));
     return Container(
       child: Center(
         child: Text('Hello!'),
       ),
     );
+  }
+
+  Type contextType(BuildContext context) {
+    return context.runtimeType;
   }
 }
 
@@ -39,15 +37,17 @@ class MySecondWidjet extends StatefulWidget {
 }
 
 class _MySecondWidjetState extends State<MySecondWidjet> {
-  int _callBuildCounter = 0;
   @override
   Widget build(BuildContext context) {
-    _callBuildCounter += 1;
-    print('build count: $_callBuildCounter');
+    print(contextType());
     return Container(
       child: Center(
         child: Text('Hello!'),
       ),
     );
+  }
+
+  Type contextType() {
+    return context.runtimeType;
   }
 }
