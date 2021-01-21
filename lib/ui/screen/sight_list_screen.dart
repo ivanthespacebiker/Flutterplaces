@@ -20,9 +20,10 @@ class _SightListScreenState extends State<SightListScreen> {
           flexibleSpace: Container(
             padding: EdgeInsets.only(top: 64, bottom: 0, left: 16, right: 16),
             margin: EdgeInsets.zero,
-            child: RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
+            child: Container(
+              child: Text(
+                'Список \nинтересных мест',
+                textAlign: TextAlign.left,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 32,
@@ -30,22 +31,6 @@ class _SightListScreenState extends State<SightListScreen> {
                   fontStyle: FontStyle.normal,
                   height: 1.12,
                 ),
-                children: [
-                  TextSpan(
-                    text: "С",
-                    style: TextStyle(color: Colors.green),
-                  ),
-                  TextSpan(
-                    text: "писок ",
-                  ),
-                  TextSpan(
-                    text: "\nи",
-                    style: TextStyle(color: Colors.yellow),
-                  ),
-                  TextSpan(
-                    text: "нтересных мест",
-                  ),
-                ],
               ),
             ),
           ),
