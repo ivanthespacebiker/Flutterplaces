@@ -12,6 +12,7 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(136.0),
         child: AppBar(
@@ -34,7 +35,7 @@ class _SightListScreenState extends State<SightListScreen> {
             //   ),
             // ),
             child: RichText(
-             textAlign: TextAlign.left,
+              textAlign: TextAlign.left,
               text: TextSpan(
                 style: TextStyle(
                   color: Colors.black,
@@ -49,10 +50,10 @@ class _SightListScreenState extends State<SightListScreen> {
                     style: TextStyle(color: Colors.green),
                   ),
                   TextSpan(
-                    text: "писок ",
+                    text: "писок\n",
                   ),
                   TextSpan(
-                    text: "\nи",
+                    text: "и",
                     style: TextStyle(color: Colors.yellow),
                   ),
                   TextSpan(
