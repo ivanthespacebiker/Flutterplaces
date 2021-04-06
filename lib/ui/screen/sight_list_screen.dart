@@ -1,3 +1,5 @@
+/// Экран со списком интересных мест
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -7,86 +9,62 @@ class SightListScreen extends StatefulWidget {
 }
 
 class _SightListScreenState extends State<SightListScreen> {
-  int _pressCount = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My app bar"),
-      ),
-      body: Center(
-        child: Flex(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            direction: Axis.vertical,
-            children: [
-              Flexible(
-                fit: FlexFit.tight,
-                child: Flex(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  direction: Axis.horizontal,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.tight,
-                      child: Container(
-                        color: Colors.brown,
-                        child: Center(
-                          child: Text('Press count: $_pressCount'),
-                        ),
-                      ),
-                    )
-                  ],
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(136.0),
+        child: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          flexibleSpace: Container(
+            padding: EdgeInsets.only(top: 64, bottom: 0, left: 16, right: 16),
+            margin: EdgeInsets.zero,
+            // child: Container(
+            //   child: Text(
+            //     'Список \nинтересных мест',
+            //     textAlign: TextAlign.left,
+            //     style: TextStyle(
+            //       color: Colors.black,
+            //       fontSize: 32,
+            //       fontWeight: FontWeight.bold,
+            //       fontStyle: FontStyle.normal,
+            //       height: 1.12,
+            //     ),
+            //   ),
+            // ),
+            child: RichText(
+              textAlign: TextAlign.left,
+              text: TextSpan(
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.normal,
+                  height: 1.12,
                 ),
-              ),
-            ]),
-      ),
-      drawer: Drawer(
-        child: new ListView(
-          children: [
-            new DrawerHeader(
-              child: new Text("My drawer Header"),
-              decoration: new BoxDecoration(
-                color: Colors.blue,
+                children: [
+                  TextSpan(
+                    text: "С",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  TextSpan(
+                    text: "писок\n",
+                  ),
+                  TextSpan(
+                    text: "и",
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                  TextSpan(
+                    text: "нтересных мест",
+                  ),
+                ],
               ),
             ),
-            new Text("My drawer item 1"),
-            new Text("My drawer item 2"),
-            new Text("My drawer item 3"),
-          ],
+          ),
         ),
       ),
-      bottomNavigationBar: new BottomNavigationBar(
-        items: [
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            label: "Home",
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.search),
-            label: "Search",
-          )
-        ],
-        onTap: onTap,
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: onPress,
-        child: new Icon(Icons.add),
-      ),
     );
-  }
-
-  void onTap(int item) {
-    setState(() {
-      incrementPressCont();
-    });
-  }
-
-  void onPress() {
-    setState(() {
-      incrementPressCont();
-    });
-  }
-
-  void incrementPressCont() {
-    _pressCount += 1;
   }
 }
