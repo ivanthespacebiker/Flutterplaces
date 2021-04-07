@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import "./sight_card.dart";
+import "../../mocks.dart";
 
 class SightListScreen extends StatefulWidget {
   @override
@@ -21,48 +23,29 @@ class _SightListScreenState extends State<SightListScreen> {
           flexibleSpace: Container(
             padding: EdgeInsets.only(top: 64, bottom: 0, left: 16, right: 16),
             margin: EdgeInsets.zero,
-            // child: Container(
-            //   child: Text(
-            //     'Список \nинтересных мест',
-            //     textAlign: TextAlign.left,
-            //     style: TextStyle(
-            //       color: Colors.black,
-            //       fontSize: 32,
-            //       fontWeight: FontWeight.bold,
-            //       fontStyle: FontStyle.normal,
-            //       height: 1.12,
-            //     ),
-            //   ),
-            // ),
-            child: RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
+            child: Container(
+              child: Text(
+                'Список \nинтересных мест',
+                textAlign: TextAlign.left,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Color.fromRGBO(59,62,91,1),
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
                   height: 1.12,
                 ),
-                children: [
-                  TextSpan(
-                    text: "С",
-                    style: TextStyle(color: Colors.green),
-                  ),
-                  TextSpan(
-                    text: "писок\n",
-                  ),
-                  TextSpan(
-                    text: "и",
-                    style: TextStyle(color: Colors.yellow),
-                  ),
-                  TextSpan(
-                    text: "нтересных мест",
-                  ),
-                ],
               ),
             ),
           ),
+        ),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            SightCard(
+              mocks[0],
+            ),
+          ],
         ),
       ),
     );
