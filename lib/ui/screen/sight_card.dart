@@ -1,3 +1,5 @@
+// Карточка списка интересных мест
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import "../../domain/sight.dart";
@@ -15,6 +17,10 @@ class SightCard extends StatelessWidget {
     top: 16,
     left: 16,
     right: 16,
+  );
+  static const EdgeInsets _photoLikeMargin = EdgeInsets.only(
+    top: 19,
+    right: 18,
   );
   static const TextStyle _photoNameTextStile = TextStyle(
     color: Colors.white,
@@ -38,6 +44,7 @@ class SightCard extends StatelessWidget {
     top: 16,
     left: 16,
     right: 16,
+    bottom: 2,
   );
   static const TextStyle _infoShortDescriptionTextStile = TextStyle(
     color: Color.fromRGBO(124, 126, 146, 1),
@@ -47,7 +54,6 @@ class SightCard extends StatelessWidget {
     height: 1.29,
   );
   static const EdgeInsets _infoShortDescriptionMargin = EdgeInsets.only(
-    top: 2,
     left: 16,
     right: 16,
   );
@@ -71,57 +77,69 @@ class SightCard extends StatelessWidget {
                 ),
                 color: Colors.red,
               ),
-              child: Container(
-                margin: _photoNameMargin,
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    _sight.type,
-                    textAlign: TextAlign.left,
-                    style: _photoNameTextStile,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: _infoMinHeight,
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: _infoBottomRadius,
-                    bottomRight: _infoBottomRadius,
-                  ),
-                color: _infoBackgroundColor,                
-              ),
-              child: Column(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: _infoDescriptionMargin,
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        _sight.details,
-                        textAlign: TextAlign.left,
-                        style: _infoDescriptionTextStile,
-                      ),
+                    alignment: Alignment.topLeft,
+                    margin: _photoNameMargin,
+                    child: Text(
+                      _sight.type,
+                      textAlign: TextAlign.left,
+                      style: _photoNameTextStile,
                     ),
                   ),
                   Container(
-                    margin: _infoShortDescriptionMargin,
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        _sight.name,
-                        textAlign: TextAlign.left,
-                        style: _infoShortDescriptionTextStile,
-                      ),
+                    alignment: Alignment.topRight,
+                    margin: _photoLikeMargin,
+                    color: Colors.blue,
+                    child: SizedBox(
+                      width: 20,
+                      height: 18,
                     ),
                   ),
                 ],
               ),
+            ),
+          ),
+          Container(
+            constraints: BoxConstraints(
+              minHeight: _infoMinHeight,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: _infoBottomRadius,
+                bottomRight: _infoBottomRadius,
+              ),
+              color: _infoBackgroundColor,
+            ),
+            child: Column(
+              children: [
+                Container(
+                  margin: _infoDescriptionMargin,
+                  child: Container(
+                    constraints: BoxConstraints(
+                      minHeight: 40,
+                    ),
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      _sight.details,
+                      textAlign: TextAlign.left,
+                      style: _infoDescriptionTextStile,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: _infoShortDescriptionMargin,
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    _sight.name,
+                    textAlign: TextAlign.left,
+                    style: _infoShortDescriptionTextStile,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

@@ -1,4 +1,4 @@
-/// Экран со списком интересных мест
+// Экран со списком интересных мест
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,7 +28,7 @@ class _SightListScreenState extends State<SightListScreen> {
                 'Список \nинтересных мест',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                  color: Color.fromRGBO(59,62,91,1),
+                  color: Color.fromRGBO(59, 62, 91, 1),
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.normal,
@@ -40,12 +40,20 @@ class _SightListScreenState extends State<SightListScreen> {
         ),
       ),
       body: Container(
-        child: Column(
-          children: [
-            SightCard(
-              mocks[0],
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SightCard(
+                mocks[0],
+              ),
+              SightCard(
+                mocks[1],
+              ),
+              SightCard(
+                mocks[2],
+              ),
+            ],
+          ),
         ),
       ),
     );
