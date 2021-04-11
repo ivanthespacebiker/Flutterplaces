@@ -1,8 +1,10 @@
-/// Экран со списком интересных мест
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import "./sight_card.dart";
+import "../../mocks.dart";
+import '../style/defalt.dart';
 
+/// Экран со списком интересных мест
 class SightListScreen extends StatefulWidget {
   @override
   _SightListScreenState createState() => _SightListScreenState();
@@ -12,56 +14,39 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(136.0),
         child: AppBar(
           elevation: 0.0,
-          backgroundColor: Colors.white,
+          backgroundColor: backgroundColor,
           flexibleSpace: Container(
             padding: EdgeInsets.only(top: 64, bottom: 0, left: 16, right: 16),
             margin: EdgeInsets.zero,
-            // child: Container(
-            //   child: Text(
-            //     'Список \nинтересных мест',
-            //     textAlign: TextAlign.left,
-            //     style: TextStyle(
-            //       color: Colors.black,
-            //       fontSize: 32,
-            //       fontWeight: FontWeight.bold,
-            //       fontStyle: FontStyle.normal,
-            //       height: 1.12,
-            //     ),
-            //   ),
-            // ),
-            child: RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.normal,
-                  height: 1.12,
-                ),
-                children: [
-                  TextSpan(
-                    text: "С",
-                    style: TextStyle(color: Colors.green),
-                  ),
-                  TextSpan(
-                    text: "писок\n",
-                  ),
-                  TextSpan(
-                    text: "и",
-                    style: TextStyle(color: Colors.yellow),
-                  ),
-                  TextSpan(
-                    text: "нтересных мест",
-                  ),
-                ],
+            child: Container(
+              child: Text(
+                'Список \nинтересных мест',
+                textAlign: TextAlign.left,
+                style: appBarTextStyle,
               ),
             ),
+          ),
+        ),
+      ),
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SightCard(
+                mocks[0],
+              ),
+              SightCard(
+                mocks[1],
+              ),
+              SightCard(
+                mocks[2],
+              ),
+            ],
           ),
         ),
       ),
