@@ -94,7 +94,7 @@ class _SightDetailsState extends State<SightDetails> {
                 ),
                 child: Text(
                   "Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного",
-                  style: sightDetailsDetailsTextStyle,
+                  style: sightDetailsDescriptionTextStyle,
                 ),
               ),
               Container(

@@ -34,7 +34,7 @@ const TextStyle sightDetailsModeTextStyle = TextStyle(
   height: 1.29,
 );
 
-const TextStyle sightDetailsDetailsTextStyle = TextStyle(
+const TextStyle sightDetailsDescriptionTextStyle = TextStyle(
   color: Color.fromRGBO(59, 62, 91, 1),
   fontSize: 14,
   fontWeight: FontWeight.w400,
@@ -73,6 +73,8 @@ const TextStyle photoNameTextStile = TextStyle(
   fontStyle: FontStyle.normal,
   height: 1.29,
 );
+
+const Color infoBackgroundColor = Color.fromRGBO(245, 245, 245, 1);
 
 const TextStyle infoShortDescriptionTextStile = TextStyle(
   color: Color.fromRGBO(124, 126, 146, 1),

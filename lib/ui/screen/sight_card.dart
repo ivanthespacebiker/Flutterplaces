@@ -18,23 +18,19 @@ class SightCard extends StatelessWidget {
     left: 16,
     right: 16,
   );
-  static const EdgeInsets _photoLikeMargin = EdgeInsets.only(
+  static const EdgeInsets _photoFavoritesButtonMargin = EdgeInsets.only(
     top: 19,
     right: 18,
   );
-
   static const Radius _photoTopRadius = Radius.circular(16);
 
   static const double _infoMinHeight = 92;
-  static const Color _infoBackgroundColor = Color.fromRGBO(245, 245, 245, 1);
-
   static const EdgeInsets _infoDescriptionMargin = EdgeInsets.only(
     top: 16,
     left: 16,
     right: 16,
     bottom: 2,
   );
-
   static const EdgeInsets _infoShortDescriptionMargin = EdgeInsets.only(
     left: 16,
     right: 16,
@@ -74,7 +70,7 @@ class SightCard extends StatelessWidget {
                   ),
                   Container(
                     alignment: Alignment.topRight,
-                    margin: _photoLikeMargin,
+                    margin: _photoFavoritesButtonMargin,
                     color: Colors.blue,
                     child: SizedBox(
                       width: 20,
@@ -94,7 +90,7 @@ class SightCard extends StatelessWidget {
                 bottomLeft: _infoBottomRadius,
                 bottomRight: _infoBottomRadius,
               ),
-              color: _infoBackgroundColor,
+              color: infoBackgroundColor,
             ),
             child: Column(
               children: [
