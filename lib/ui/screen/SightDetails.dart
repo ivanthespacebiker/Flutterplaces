@@ -1,9 +1,9 @@
-// Экран детализации интересного места
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import "../../domain/sight.dart";
+import '../style/defalt.dart';
 
+/// Экран детализации интересного места
 class SightDetails extends StatefulWidget {
   final Sight _sight;
   @override
@@ -16,7 +16,7 @@ class _SightDetailsState extends State<SightDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -36,7 +36,7 @@ class _SightDetailsState extends State<SightDetails> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
-                            color: Colors.white,
+                            color: backgroundColor,
                           ),
                         ),
                       ),
@@ -53,13 +53,7 @@ class _SightDetailsState extends State<SightDetails> {
                 ),
                 child: Text(
                   "Прянности и радости",
-                  style: TextStyle(
-                    color: Color.fromRGBO(59, 62, 91, 1),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.normal,
-                    height: 1.2,
-                  ),
+                  style: sightDetailsNameTextStyle,
                 ),
               ),
               Container(
@@ -78,26 +72,14 @@ class _SightDetailsState extends State<SightDetails> {
                       ),
                       child: Text(
                         "ресторан",
-                        style: TextStyle(
-                          color: Color.fromRGBO(59, 62, 91, 1),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          fontStyle: FontStyle.normal,
-                          height: 1.29,
-                        ),
+                        style: sightDetailsTypeTextStyle,
                       ),
                     ),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text(
                         "закрыто до 09.00",
-                        style: TextStyle(
-                          color: Color.fromRGBO(142, 126, 146, 1),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.normal,
-                          height: 1.29,
-                        ),
+                        style: sightDetailsModeTextStyle,
                       ),
                     ),
                   ],
@@ -112,13 +94,7 @@ class _SightDetailsState extends State<SightDetails> {
                 ),
                 child: Text(
                   "Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного",
-                  style: TextStyle(
-                    color: Color.fromRGBO(59, 62, 91, 1),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    height: 1.29,
-                  ),
+                  style: sightDetailsDetailsTextStyle,
                 ),
               ),
               Container(
@@ -137,13 +113,7 @@ class _SightDetailsState extends State<SightDetails> {
                   child: Center(
                     child: Text(
                       "ПОСТРОИТЬ МАРШРУТ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.normal,
-                        height: 1.29,
-                      ),
+                      style: sightDetailsRouteButtonTextStyle,
                     ),
                   ),
                 ),
@@ -172,13 +142,7 @@ class _SightDetailsState extends State<SightDetails> {
                         child: Center(
                           child: Text(
                             "Запланировать",
-                            style: TextStyle(
-                              color: Color.fromRGBO(124, 126, 146, 0.56),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              height: 1.29,
-                            ),
+                            style: sightDetailsScheduleButtonTextStyle,
                           ),
                         ),
                       ),
@@ -190,13 +154,7 @@ class _SightDetailsState extends State<SightDetails> {
                         child: Center(
                           child: Text(
                             "В Избранное",
-                            style: TextStyle(
-                              color: Color.fromRGBO(59, 62, 91, 1),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              height: 1.29,
-                            ),
+                            style: sightDetailsFavoritesButtonTextStyle,
                           ),
                         ),
                       ),
