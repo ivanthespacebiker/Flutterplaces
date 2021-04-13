@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import "../../domain/sight.dart";
-import '../style/defalt.dart';
+import '../style/default.dart';
 
 /// Экран детализации интересного места
 class SightDetails extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SightDetailsState extends State<SightDetails> {
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: 361),
                   child: Container(
-                    padding: EdgeInsets.only(left: 16, top: 36),
+                    padding: EdgeInsets.only(left: defaultEdgeInsets, top: 36),
                     child: UnconstrainedBox(
                       alignment: Alignment.topLeft,
                       child: SizedBox(
@@ -47,8 +47,8 @@ class _SightDetailsState extends State<SightDetails> {
               Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
+                  left: defaultEdgeInsets,
+                  right: defaultEdgeInsets,
                   top: 24,
                 ),
                 child: Text(
@@ -59,8 +59,8 @@ class _SightDetailsState extends State<SightDetails> {
               Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
+                  left: defaultEdgeInsets,
+                  right: defaultEdgeInsets,
                   top: 2,
                 ),
                 child: Row(
@@ -68,7 +68,7 @@ class _SightDetailsState extends State<SightDetails> {
                     Container(
                       alignment: Alignment.topLeft,
                       padding: EdgeInsets.only(
-                        right: 16,
+                        right: defaultEdgeInsets,
                       ),
                       child: Text(
                         "ресторан",
@@ -88,8 +88,8 @@ class _SightDetailsState extends State<SightDetails> {
               Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
+                  left: defaultEdgeInsets,
+                  right: defaultEdgeInsets,
                   top: 24,
                 ),
                 child: Text(
@@ -100,8 +100,8 @@ class _SightDetailsState extends State<SightDetails> {
               Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
+                  left: defaultEdgeInsets,
+                  right: defaultEdgeInsets,
                   top: 24,
                 ),
                 decoration: BoxDecoration(
@@ -120,8 +120,8 @@ class _SightDetailsState extends State<SightDetails> {
               ),
               Container(
                 margin: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
+                  left: defaultEdgeInsets,
+                  right: defaultEdgeInsets,
                   top: 24,
                 ),
                 decoration: BoxDecoration(
