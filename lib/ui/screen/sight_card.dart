@@ -77,16 +77,10 @@ class SightCard extends StatelessWidget {
                   Container(
                     alignment: Alignment.topRight,
                     margin: _photoFavoritesButtonMargin,
-                    //color: Colors.blue,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("res/pictures/SightCardFavorite.png"),
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
                     child: SizedBox(
-                      width: 20,
-                      height: 18,
+                      width: 22,
+                      height: 20,
+                      child: Image.asset("res/pictures/SightCardFavorite.png"),
                     ),
                   ),
                 ],
