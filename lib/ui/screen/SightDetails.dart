@@ -23,7 +23,13 @@ class _SightDetailsState extends State<SightDetails> {
             children: [
               Container(
                 alignment: Alignment.topLeft,
-                color: Colors.red,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  image: DecorationImage(
+                    image: AssetImage("res/pictures/SightDetailsPicture.png"),
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: 361),
                   child: Container(
@@ -37,6 +43,14 @@ class _SightDetailsState extends State<SightDetails> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             color: backgroundColor,
+                          ),
+                          child: Center(
+                            child: SizedBox(
+                              width: 25,
+                              height: 24,
+                              child: Image.asset(
+                                  "res/pictures/SightDetailsBack.png"),
+                            ),
                           ),
                         ),
                       ),
@@ -110,11 +124,22 @@ class _SightDetailsState extends State<SightDetails> {
                 ),
                 child: SizedBox(
                   height: 48,
-                  child: Center(
-                    child: Text(
-                      "ПОСТРОИТЬ МАРШРУТ",
-                      style: sightDetailsRouteButtonTextStyle,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(right: 10),
+                        child: SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Image.asset(
+                                "res/pictures/SightDetailsRoute.png")),
+                      ),
+                      Text(
+                        "ПОСТРОИТЬ МАРШРУТ",
+                        style: sightDetailsRouteButtonTextStyle,
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -139,11 +164,23 @@ class _SightDetailsState extends State<SightDetails> {
                       margin: EdgeInsets.only(top: 11),
                       child: SizedBox(
                         height: 40,
-                        child: Center(
-                          child: Text(
-                            "Запланировать",
-                            style: sightDetailsScheduleButtonTextStyle,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: Image.asset(
+                                    "res/pictures/SightDetailsCalendar.png"),
+                              ),
+                            ),
+                            Text(
+                              "Запланировать",
+                              style: sightDetailsScheduleButtonTextStyle,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -151,11 +188,23 @@ class _SightDetailsState extends State<SightDetails> {
                       margin: EdgeInsets.only(top: 11),
                       child: SizedBox(
                         height: 40,
-                        child: Center(
-                          child: Text(
-                            "В Избранное",
-                            style: sightDetailsFavoritesButtonTextStyle,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: Image.asset(
+                                    "res/pictures/SightDetailsFavorite.png"),
+                              ),
+                            ),
+                            Text(
+                              "В Избранное",
+                              style: sightDetailsFavoritesButtonTextStyle,
+                            ),
+                          ],
                         ),
                       ),
                     ),
