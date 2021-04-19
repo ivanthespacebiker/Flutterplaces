@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-final Color backgroundColor = Colors.white;
+const double defaultEdgeInsets = 16;
+
+const Color backgroundColor = Colors.white;
 
 const TextStyle appBarTextStyle = TextStyle(
   color: Color.fromRGBO(59, 62, 91, 1),

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import "../../domain/sight.dart";
-import '../style/defalt.dart';
+import '../style/default.dart';
 
 /// Карточка списка интересных мест
 class SightCard extends StatelessWidget {
   final Sight _sight;
 
   static const double _photoMinHeight = 96;
+
   static const EdgeInsets _photoPadding = EdgeInsets.only(
-    top: 16,
-    left: 16,
-    right: 16,
+    top: defaultEdgeInsets,
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
   );
   static const EdgeInsets _photoNameMargin = EdgeInsets.only(
-    top: 16,
-    left: 16,
-    right: 16,
+    top: defaultEdgeInsets,
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
   );
   static const EdgeInsets _photoFavoritesButtonMargin = EdgeInsets.only(
     top: 19,
@@ -26,19 +27,20 @@ class SightCard extends StatelessWidget {
 
   static const double _infoMinHeight = 92;
   static const EdgeInsets _infoDescriptionMargin = EdgeInsets.only(
-    top: 16,
-    left: 16,
-    right: 16,
+    top: defaultEdgeInsets,
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
     bottom: 2,
   );
   static const EdgeInsets _infoShortDescriptionMargin = EdgeInsets.only(
-    left: 16,
-    right: 16,
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
   );
   static const Radius _infoBottomRadius = Radius.circular(12);
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: _photoPadding,
       child: Column(
@@ -62,10 +64,12 @@ class SightCard extends StatelessWidget {
                   Container(
                     alignment: Alignment.topLeft,
                     margin: _photoNameMargin,
-                    child: Text(
-                      _sight.type,
-                      textAlign: TextAlign.left,
-                      style: photoNameTextStile,
+                    child: Container(
+                      child: Text(
+                        _sight.type,
+                        textAlign: TextAlign.left,
+                        style: photoNameTextStile,
+                      ),
                     ),
                   ),
                   Container(
@@ -96,16 +100,14 @@ class SightCard extends StatelessWidget {
               children: [
                 Container(
                   margin: _infoDescriptionMargin,
-                  child: Container(
-                    constraints: BoxConstraints(
-                      minHeight: 40,
-                    ),
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      _sight.details,
-                      textAlign: TextAlign.left,
-                      style: infoDescriptionTextStile,
-                    ),
+                  constraints: BoxConstraints(
+                    minHeight: 40,
+                  ),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    _sight.details,
+                    textAlign: TextAlign.left,
+                    style: infoDescriptionTextStile,
                   ),
                 ),
                 Container(
