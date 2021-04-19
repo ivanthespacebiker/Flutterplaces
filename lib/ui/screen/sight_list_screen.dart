@@ -15,20 +15,6 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-
-      // В задании сказано:
-      // Переверстать AppBar через наследника PreferredSizeWidget.
-      // Я это понял так, что надо создать новый класс-наследник PreferredSizeWidget.
-      // Однако когда я написал
-      // class SightListAppBar extends PreferredSizeWidget {}
-      // у меня волосы на спине зашевелились от количества методов, которые нужно заоверрейдить.
-      // Да еще и смысл этих методов был для меня мягко говоря не ясен.
-      // однако попробовав скопипастить то, как это делает сам PreferredSize, т.е.
-      // class SightListAppBar extends StatelessWidget implements PreferredSizeWidget
-      // все оказалось не так страшно.
-      // А потом я и вовсе понял, что PreferredSizeWidget это абстактный класс
-      // и если наследоваться как "extends PreferredSize" то должно быть все хорошо, что в итоге и подтвердилось.
-
       appBar: SightListAppBar(),
       body: Container(
         child: SingleChildScrollView(
