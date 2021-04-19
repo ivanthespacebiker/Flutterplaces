@@ -40,29 +40,8 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // // в задании сказано: "ограничить размер текста  по ширине до половины размера карточки"
-    // // а как этого добиться в условиях огромного зоопарка устройств андроид нет и намека.
-    // // нагуглил такой способ узнать ширину экрана и собираюсь от этого плясать.
-    // double _screenWidth = MediaQuery.of(context).size.width;
-    // // З.Ы. возможно я конечно загоняюсь, но хардкодить циферку из фигмы мне внутренний перфекционист не позволяет.
 
-    // // огарничение ширины для текста будет "пол ширины экрана" минус два обычных отступа (по дизайну они 16)
-    // double textWidth = _screenWidth / 2 - 2 * defaultEdgeInsets;
-    // BoxConstraints textConstraints =
-    //     BoxConstraints(minWidth: textWidth, maxWidth: textWidth);
-
-    // // чтобы оценить эффект от экспериментов добавлю границу контейнеру
-    // BoxDecoration experimentBorder = BoxDecoration(
-    //   border: new Border.all(
-    //       color: Colors.black, width: 0.1, style: BorderStyle.solid),
-    // );
-
-    return //AspectRatio(
-        // AspectRatio используйте, чтобы привести виджеты SightCard в соотношение 3/2
-        //aspectRatio: 3 / 2,
-        //child:
-        Container(
-      //decoration: experimentBorder,
+    return Container(
       padding: _photoPadding,
       child: Column(
         children: [
@@ -86,16 +65,11 @@ class SightCard extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     margin: _photoNameMargin,
                     child: Container(
-                      //decoration:
-                      //    experimentBorder, // чтобы оценить эффект от ограничения ширины текста добавлю границу контейнеру с текстом
-                      //child: ConstrainedBox(
-                      //constraints: textConstraints,
                       child: Text(
                         _sight.type,
                         textAlign: TextAlign.left,
                         style: photoNameTextStile,
                       ),
-                      //),
                     ),
                   ),
                   Container(
@@ -111,10 +85,6 @@ class SightCard extends StatelessWidget {
               ),
             ),
           ),
-          // SizedBox(
-          //   // Добавьте отступ между между фотографиями и описанием с помощью SizedBox
-          //   height: 20,
-          // ),
           Container(
             constraints: BoxConstraints(
               minHeight: _infoMinHeight,
@@ -154,7 +124,6 @@ class SightCard extends StatelessWidget {
           ),
         ],
       ),
-      //),
     );
   }
 
