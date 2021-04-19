@@ -40,7 +40,6 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: _photoPadding,
       child: Column(
@@ -55,7 +54,10 @@ class SightCard extends StatelessWidget {
                   topLeft: _photoTopRadius,
                   topRight: _photoTopRadius,
                 ),
-                color: Colors.red,
+                image: DecorationImage(
+                  image: AssetImage("res/pictures/CardsPicture.png"),
+                  fit: BoxFit.fitWidth,
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +77,13 @@ class SightCard extends StatelessWidget {
                   Container(
                     alignment: Alignment.topRight,
                     margin: _photoFavoritesButtonMargin,
-                    color: Colors.blue,
+                    //color: Colors.blue,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("res/pictures/SightCardFavorite.png"),
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
                     child: SizedBox(
                       width: 20,
                       height: 18,
