@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import "../../domain/sight.dart";
@@ -40,92 +42,117 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: _photoPadding,
-      child: Column(
-        children: [
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: _photoMinHeight,
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: _photoTopRadius,
-                  topRight: _photoTopRadius,
-                ),
-                image: DecorationImage(
-                  image: AssetImage("res/pictures/CardsPicture.png"),
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+    // В звдании сказано:
+    // Во время загрузки отобразите лоадер.
+    //  Важно
+    // лоадер должен быть завязан на время загрузки изображения. Посмотрите на конструктор network у Image
+    //
+    // Однако у нас картинки грузятся из ассетов и поэтому, на мой взгляд, задание выпорлнить невозможно.
+    // Однако нагуглил способ имитировать задкржку загрузки через некий "FutureBuilder". Насколько я понял, это
+    // обертка над futures, async, await в "виджетовом" стиле.
+    //
+    // Соответственно задаю случайное количество миллисекунд в качестве задержки.
+    // Пока идет ожидание отображаем CircularProgressIndicator.
+    // когда ожидание закончилось, отображаем сверстанную карточку.
+
+    int _randomDalay() {
+      Random r = new Random();
+      return r.nextInt(1000);
+    }
+
+    return FutureBuilder(
+      future: Future.delayed(Duration(milliseconds: _randomDalay())),
+      builder: (ctx, snapshot) => snapshot.connectionState ==
+              ConnectionState.waiting
+          ? Center(child: CircularProgressIndicator())
+          : Container(
+              padding: _photoPadding,
+              child: Column(
                 children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    margin: _photoNameMargin,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: _photoMinHeight,
+                    ),
                     child: Container(
-                      child: Text(
-                        _sight.type,
-                        textAlign: TextAlign.left,
-                        style: photoNameTextStile,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: _photoTopRadius,
+                          topRight: _photoTopRadius,
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage("res/pictures/CardsPicture.png"),
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            margin: _photoNameMargin,
+                            child: Container(
+                              child: Text(
+                                _sight.type,
+                                textAlign: TextAlign.left,
+                                style: photoNameTextStile,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.topRight,
+                            margin: _photoFavoritesButtonMargin,
+                            child: SizedBox(
+                              width: 22,
+                              height: 20,
+                              child: Image.asset(
+                                  "res/pictures/SightCardFavorite.png"),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Container(
-                    alignment: Alignment.topRight,
-                    margin: _photoFavoritesButtonMargin,
-                    child: SizedBox(
-                      width: 22,
-                      height: 20,
-                      child: Image.asset("res/pictures/SightCardFavorite.png"),
+                    constraints: BoxConstraints(
+                      minHeight: _infoMinHeight,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: _infoBottomRadius,
+                        bottomRight: _infoBottomRadius,
+                      ),
+                      color: infoBackgroundColor,
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: _infoDescriptionMargin,
+                          constraints: BoxConstraints(
+                            minHeight: 40,
+                          ),
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            _sight.details,
+                            textAlign: TextAlign.left,
+                            style: infoDescriptionTextStile,
+                          ),
+                        ),
+                        Container(
+                          margin: _infoShortDescriptionMargin,
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            _sight.name,
+                            textAlign: TextAlign.left,
+                            style: infoShortDescriptionTextStile,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-          Container(
-            constraints: BoxConstraints(
-              minHeight: _infoMinHeight,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: _infoBottomRadius,
-                bottomRight: _infoBottomRadius,
-              ),
-              color: infoBackgroundColor,
-            ),
-            child: Column(
-              children: [
-                Container(
-                  margin: _infoDescriptionMargin,
-                  constraints: BoxConstraints(
-                    minHeight: 40,
-                  ),
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    _sight.details,
-                    textAlign: TextAlign.left,
-                    style: infoDescriptionTextStile,
-                  ),
-                ),
-                Container(
-                  margin: _infoShortDescriptionMargin,
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    _sight.name,
-                    textAlign: TextAlign.left,
-                    style: infoShortDescriptionTextStile,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 
