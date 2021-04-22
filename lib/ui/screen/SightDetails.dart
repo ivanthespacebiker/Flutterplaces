@@ -2,8 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import "../../domain/sight.dart";
-import '../style/default.dart';
+import 'package:places/ui/style/picturesAssets.dart';
+import "package:places/domain/sight.dart";
+import 'package:places/ui/style/default.dart';
 
 /// Экран детализации интересного места
 class SightDetails extends StatefulWidget {
@@ -39,8 +40,7 @@ class _SightDetailsState extends State<SightDetails> {
                         decoration: BoxDecoration(
                           color: Colors.red,
                           image: DecorationImage(
-                            image: AssetImage(
-                                "res/pictures/SightDetailsPicture.png"),
+                            image: AssetImage(SightDetailsPicture),
                             fit: BoxFit.fitWidth,
                           ),
                         ),
@@ -64,8 +64,7 @@ class _SightDetailsState extends State<SightDetails> {
                                     child: SizedBox(
                                       width: 25,
                                       height: 24,
-                                      child: Image.asset(
-                                          "res/pictures/SightDetailsBack.png"),
+                                      child: Image.asset(SightDetailsBack),
                                     ),
                                   ),
                                 ),
@@ -148,8 +147,7 @@ class _SightDetailsState extends State<SightDetails> {
                                 child: SizedBox(
                                     width: 24,
                                     height: 24,
-                                    child: Image.asset(
-                                        "res/pictures/SightDetailsRoute.png")),
+                                    child: Image.asset(SightDetailsRoute)),
                               ),
                               Text(
                                 "ПОСТРОИТЬ МАРШРУТ",
@@ -188,8 +186,7 @@ class _SightDetailsState extends State<SightDetails> {
                                       child: SizedBox(
                                         width: 24,
                                         height: 24,
-                                        child: Image.asset(
-                                            "res/pictures/SightDetailsCalendar.png"),
+                                        child: Image.asset(SightDetailsCalendar),
                                       ),
                                     ),
                                     Text(
@@ -213,8 +210,7 @@ class _SightDetailsState extends State<SightDetails> {
                                       child: SizedBox(
                                         width: 24,
                                         height: 24,
-                                        child: Image.asset(
-                                            "res/pictures/SightDetailsFavorite.png"),
+                                        child: Image.asset(SightDetailsFavorite),
                                       ),
                                     ),
                                     Text(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import "./sight_card.dart";
-import "../../mocks.dart";
-import '../style/default.dart';
+import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/style/default.dart';
+import '../../mocks.dart';
 
 /// Экран со списком интересных мест
 class SightListScreen extends StatefulWidget {
@@ -21,13 +21,13 @@ class _SightListScreenState extends State<SightListScreen> {
           child: Column(
             children: [
               SightCard(
-                mocks[0],
+                sight: mocks[0],
               ),
               SightCard(
-                mocks[1],
+                sight: mocks[1],
               ),
               SightCard(
-                mocks[2],
+                sight: mocks[2],
               ),
             ],
           ),
