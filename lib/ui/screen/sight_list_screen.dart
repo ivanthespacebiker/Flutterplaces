@@ -23,10 +23,10 @@ class _SightListScreenState extends State<SightListScreen> {
               SightCard(
                 sight: mocks[0],
               ),
-              SightCard(
+              SightCardWantToVizit(
                 sight: mocks[1],
               ),
-              SightCard(
+              SightCardVizited(
                 sight: mocks[2],
               ),
             ],

@@ -39,6 +39,7 @@ class SightCard extends StatelessWidget {
                     children: [
                       _SightCardPhoto(
                         type: _sight.type,
+                        rightButtons: _SightCardPhotoRightButtons(),
                       ),
                       _SightCardInfo(
                         name: _sight.name,
@@ -51,12 +52,61 @@ class SightCard extends StatelessWidget {
   }
 }
 
+/// Карточка списка "Хочу посетить"
+class SightCardWantToVizit extends SightCard {
+  const SightCardWantToVizit({
+    Key key,
+    @required Sight sight,
+  }) : super(key: key, sight: sight);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: SightCard._cardsPadding,
+      child: Column(
+        children: [
+          _SightCardPhoto(
+            type: _sight.type,
+            rightButtons: _SightCardWantToVizitPhotoRightButtons(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Карточка списка "Посетил"
+class SightCardVizited extends SightCard {
+  const SightCardVizited({
+    Key key,
+    @required Sight sight,
+  }) : super(key: key, sight: sight);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: SightCard._cardsPadding,
+      child: Column(
+        children: [
+          _SightCardPhoto(
+            type: _sight.type,
+            rightButtons: _SightCardVizitedPhotoRightButtons(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /// часть карточки места с фотографией
 class _SightCardPhoto extends StatelessWidget {
+  final Widget _rightButtons;
   const _SightCardPhoto({
     Key key,
     @required String type,
+    @required Widget rightButtons,
   })  : _type = type,
+        _rightButtons = rightButtons,
         super(key: key);
 
   static const double _photoMinHeight = 96;
@@ -109,15 +159,97 @@ class _SightCardPhoto extends StatelessWidget {
             Container(
               alignment: Alignment.topRight,
               margin: _photoFavoritesButtonMargin,
-              child: SizedBox(
-                width: 22,
-                height: 20,
-                child: Image.asset(SightCardFavorite),
-              ),
+              child: _rightButtons,
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+/// кнопки справа для карточки интересных мест
+class _SightCardPhotoRightButtons extends StatelessWidget {
+  const _SightCardPhotoRightButtons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 22,
+      height: 20,
+      child: Image.asset(SightCardFavorite),
+    );
+  }
+}
+
+/// кнопки справа для карточки "Хочу посетить"
+class _SightCardWantToVizitPhotoRightButtons extends StatelessWidget {
+  const _SightCardWantToVizitPhotoRightButtons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: EdgeInsets.only(
+            left: defaultEdgeInsets,
+          ),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset(SightCardCalendar),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(
+            left: defaultEdgeInsets,
+          ),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset(SightCardCross),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// кнопки справа для карточки "Посетил"
+class _SightCardVizitedPhotoRightButtons extends StatelessWidget {
+  const _SightCardVizitedPhotoRightButtons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: EdgeInsets.only(
+            left: defaultEdgeInsets,
+          ),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset(SightCardShare),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(
+            left: defaultEdgeInsets,
+          ),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: Image.asset(SightCardCross),
+          ),
+        ),
+      ],
     );
   }
 }
