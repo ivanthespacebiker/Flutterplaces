@@ -18,3 +18,7 @@ const String SightDetailsRoute = "res/pictures/SightDetailsRoute.png";
 const String SightDetailsCalendar = "res/pictures/SightDetailsCalendar.png";
 
 const String SightDetailsFavorite = "res/pictures/SightDetailsFavorite.png";
+
+const String ListVizitedEmptyBackground = "res/pictures/ListVizitedEmptyBackground.png";
+
+const String ListWantToVizitEmptyBackground = "res/pictures/ListWantToVizitEmptyBackground.png";
