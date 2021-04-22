@@ -96,7 +96,6 @@ class _VisitingScreenAppBar extends StatelessWidget
             ),
             padding: EdgeInsets.only(
               top: 24,
-              //bottom: 16,
               left: defaultEdgeInsets,
               right: defaultEdgeInsets,
             ),
@@ -120,7 +119,6 @@ class _VisitingScreenAppBar extends StatelessWidget
               maxHeight: 52,
               minWidth: double.infinity,
             ),
-            //color: Colors.black,
             child: Container(
               decoration: BoxDecoration(
                 color: Color.fromRGBO(245, 245, 245, 1),
@@ -132,35 +130,39 @@ class _VisitingScreenAppBar extends StatelessWidget
                   left: defaultEdgeInsets,
                   right: defaultEdgeInsets),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(59, 62, 91, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(59, 62, 91, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                      ),
+                      constraints: BoxConstraints(
+                        minHeight: 40,
+                        maxHeight: 40,
+                        minWidth: 164,
+                        maxWidth: double.infinity,
+                      ),
+                      child: Center(child: Text("Хочу посетить")),
                     ),
-                    // margin: EdgeInsets.only(
-                    //     top: 6, bottom: 6, left: defaultEdgeInsets),
-                    constraints: BoxConstraints(
-                      minHeight: 40,
-                      maxHeight: 40,
-                      minWidth: 164,
-                    ),
-                    child: Center(child: Text("Хочу посетить")),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(59, 62, 91, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(59, 62, 91, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                      ),
+                      margin: EdgeInsets.only(
+                           left: 1),
+                      constraints: BoxConstraints(
+                        minHeight: 40,
+                        maxHeight: 40,
+                        minWidth: 164,
+                        maxWidth: double.infinity,
+                      ),
+                      child: Center(child: Text("Посетил")),
                     ),
-                    // margin: EdgeInsets.only(
-                    //     top: 6, bottom: 6, right: defaultEdgeInsets),
-                    constraints: BoxConstraints(
-                      minHeight: 40,
-                      maxHeight: 40,
-                      minWidth: 164,
-                    ),
-                    child: Center(child: Text("Посетил")),
                   ),
                 ],
               ),
