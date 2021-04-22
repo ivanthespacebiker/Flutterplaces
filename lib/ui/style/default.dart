@@ -4,7 +4,7 @@ const double defaultEdgeInsets = 16;
 
 const Color backgroundColor = Colors.white;
 
-const TextStyle appBarTextStyle = TextStyle(
+const TextStyle sightListAppBarTextStyle = TextStyle(
   color: Color.fromRGBO(59, 62, 91, 1),
   fontSize: 32,
   fontWeight: FontWeight.bold,
@@ -93,3 +93,16 @@ const TextStyle infoDescriptionTextStile = TextStyle(
   fontStyle: FontStyle.normal,
   height: 1.25,
 );
+
+const TextStyle visitingScreenAppBarTextStyle = TextStyle(
+  color: Color.fromRGBO(37, 40, 73, 1),
+  fontSize: 24,
+  fontWeight: FontWeight.w500,
+  fontStyle: FontStyle.normal,
+  height: 1.33,
+);
+
+
+const BNB_SelectedItemColor = Color.fromRGBO(59, 62, 91, 1);
+
+const BNB_UnselectedItemColor = Color.fromRGBO(59, 62, 91, 1);
