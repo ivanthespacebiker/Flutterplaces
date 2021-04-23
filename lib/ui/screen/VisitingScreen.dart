@@ -102,7 +102,7 @@ class _VisitingScreenAppBar extends StatelessWidget
   Size get preferredSize => _preferredSize;
 
   @override
-  Widget build(BuildContext context) {
+  AppBar build(BuildContext context) {
     return AppBar(
       elevation: 0.0,
       backgroundColor: backgroundColor,

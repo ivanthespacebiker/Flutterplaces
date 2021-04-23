@@ -69,6 +69,11 @@ class SightCardWantToVizit extends SightCard {
             type: _sight.type,
             rightButtons: _SightCardWantToVizitPhotoRightButtons(),
           ),
+          _SightCardInfoWantToVizit(
+            name: _sight.name,
+            details: _sight.details,
+            planed: "",
+          ),
         ],
       ),
     );
@@ -91,6 +96,11 @@ class SightCardVizited extends SightCard {
           _SightCardPhoto(
             type: _sight.type,
             rightButtons: _SightCardVizitedPhotoRightButtons(),
+          ),
+          _SightCardInfoVizited(
+            name: _sight.name,
+            details: _sight.details,
+            visited: "",
           ),
         ],
       ),
@@ -319,4 +329,26 @@ class _SightCardInfo extends StatelessWidget {
       ),
     );
   }
+}
+
+class _SightCardInfoWantToVizit extends _SightCardInfo {
+  final String _planed;
+  const _SightCardInfoWantToVizit({
+    Key key,
+    @required String details,
+    @required String name,
+    @required String planed,
+  })  : _planed = planed,
+        super(key: key, details: details, name: name);
+}
+
+class _SightCardInfoVizited extends _SightCardInfo {
+  final String _visited;
+  const _SightCardInfoVizited({
+    Key key,
+    @required String details,
+    @required String name,
+    @required String visited,
+  })  : _visited = visited,
+        super(key: key, details: details, name: name);
 }
