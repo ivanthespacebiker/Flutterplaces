@@ -331,6 +331,7 @@ class _SightCardInfo extends StatelessWidget {
   }
 }
 
+/// часть карточки "Хочу посетить" с информацией
 class _SightCardInfoWantToVizit extends _SightCardInfo {
   final String _planed;
   const _SightCardInfoWantToVizit({
@@ -342,6 +343,7 @@ class _SightCardInfoWantToVizit extends _SightCardInfo {
         super(key: key, details: details, name: name);
 }
 
+/// часть карточки "Посетил" с информацией
 class _SightCardInfoVizited extends _SightCardInfo {
   final String _visited;
   const _SightCardInfoVizited({
