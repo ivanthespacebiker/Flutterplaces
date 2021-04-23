@@ -1,32 +1,32 @@
 
-const String CardsPicture = "res/pictures/CardsPicture.png";
+const String cardsPicture = "res/pictures/CardsPicture.png";
 
-const String SightCardFavorite = "res/pictures/SightCardFavorite.png";
+const String sightCardFavorite = "res/pictures/SightCardFavorite.png";
 
-const String SightCardCross = "res/pictures/SightCardCross.png";
+const String sightCardCross = "res/pictures/SightCardCross.png";
 
-const String SightCardCalendar = "res/pictures/SightCardCalendar.png";
+const String sightCardCalendar = "res/pictures/SightCardCalendar.png";
 
-const String SightCardShare = "res/pictures/SightCardShare.png";
+const String sightCardShare = "res/pictures/SightCardShare.png";
 
-const String SightDetailsPicture = "res/pictures/SightDetailsPicture.png";
+const String sightDetailsPicture = "res/pictures/SightDetailsPicture.png";
 
-const String SightDetailsBack = "res/pictures/SightDetailsBack.png";
+const String sightDetailsBack = "res/pictures/SightDetailsBack.png";
 
-const String SightDetailsRoute = "res/pictures/SightDetailsRoute.png";
+const String sightDetailsRoute = "res/pictures/SightDetailsRoute.png";
 
-const String SightDetailsCalendar = "res/pictures/SightDetailsCalendar.png";
+const String sightDetailsCalendar = "res/pictures/SightDetailsCalendar.png";
 
-const String SightDetailsFavorite = "res/pictures/SightDetailsFavorite.png";
+const String sightDetailsFavorite = "res/pictures/SightDetailsFavorite.png";
 
-const String ListVizitedEmptyBackground = "res/pictures/ListVizitedEmptyBackground.png";
+const String listVizitedEmptyBackground = "res/pictures/ListVizitedEmptyBackground.png";
 
-const String ListWantToVizitEmptyBackground = "res/pictures/ListWantToVizitEmptyBackground.png";
+const String listWantToVizitEmptyBackground = "res/pictures/ListWantToVizitEmptyBackground.png";
 
-const String BNB_Heart = "res/pictures/BNB_Heart.png";
+const String bnbHeart = "res/pictures/BNB_Heart.png";
 
-const String BNB_List = "res/pictures/BNB_List.png";
+const String bnbList = "res/pictures/BNB_List.png";
 
-const String BNB_Map = "res/pictures/BNB_Map.png";
+const String bnbMap = "res/pictures/BNB_Map.png";
 
-const String BNB_Settings = "res/pictures/BNB_Settings.png";
+const String bnbSettings = "res/pictures/BNB_Settings.png";

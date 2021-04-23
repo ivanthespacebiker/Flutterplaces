@@ -40,7 +40,7 @@ class _SightDetailsState extends State<SightDetails> {
                         decoration: BoxDecoration(
                           color: Colors.red,
                           image: DecorationImage(
-                            image: AssetImage(SightDetailsPicture),
+                            image: AssetImage(sightDetailsPicture),
                             fit: BoxFit.fitWidth,
                           ),
                         ),
@@ -64,7 +64,7 @@ class _SightDetailsState extends State<SightDetails> {
                                     child: SizedBox(
                                       width: 25,
                                       height: 24,
-                                      child: Image.asset(SightDetailsBack),
+                                      child: Image.asset(sightDetailsBack),
                                     ),
                                   ),
                                 ),
@@ -147,7 +147,7 @@ class _SightDetailsState extends State<SightDetails> {
                                 child: SizedBox(
                                     width: 24,
                                     height: 24,
-                                    child: Image.asset(SightDetailsRoute)),
+                                    child: Image.asset(sightDetailsRoute)),
                               ),
                               Text(
                                 "ПОСТРОИТЬ МАРШРУТ",
@@ -186,7 +186,7 @@ class _SightDetailsState extends State<SightDetails> {
                                       child: SizedBox(
                                         width: 24,
                                         height: 24,
-                                        child: Image.asset(SightDetailsCalendar),
+                                        child: Image.asset(sightDetailsCalendar),
                                       ),
                                     ),
                                     Text(
@@ -210,7 +210,7 @@ class _SightDetailsState extends State<SightDetails> {
                                       child: SizedBox(
                                         width: 24,
                                         height: 24,
-                                        child: Image.asset(SightDetailsFavorite),
+                                        child: Image.asset(sightDetailsFavorite),
                                       ),
                                     ),
                                     Text(

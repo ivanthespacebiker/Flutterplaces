@@ -137,7 +137,7 @@ class _SightCardPhoto extends StatelessWidget {
             topRight: _photoTopRadius,
           ),
           image: DecorationImage(
-            image: AssetImage(CardsPicture),
+            image: AssetImage(cardsPicture),
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -179,7 +179,7 @@ class _SightCardPhotoRightButtons extends StatelessWidget {
     return SizedBox(
       width: 22,
       height: 20,
-      child: Image.asset(SightCardFavorite),
+      child: Image.asset(sightCardFavorite),
     );
   }
 }
@@ -201,7 +201,7 @@ class _SightCardWantToVizitPhotoRightButtons extends StatelessWidget {
           child: SizedBox(
             width: 24,
             height: 24,
-            child: Image.asset(SightCardCalendar),
+            child: Image.asset(sightCardCalendar),
           ),
         ),
         Container(
@@ -211,7 +211,7 @@ class _SightCardWantToVizitPhotoRightButtons extends StatelessWidget {
           child: SizedBox(
             width: 24,
             height: 24,
-            child: Image.asset(SightCardCross),
+            child: Image.asset(sightCardCross),
           ),
         ),
       ],
@@ -236,7 +236,7 @@ class _SightCardVizitedPhotoRightButtons extends StatelessWidget {
           child: SizedBox(
             width: 24,
             height: 24,
-            child: Image.asset(SightCardShare),
+            child: Image.asset(sightCardShare),
           ),
         ),
         Container(
@@ -246,7 +246,7 @@ class _SightCardVizitedPhotoRightButtons extends StatelessWidget {
           child: SizedBox(
             width: 24,
             height: 24,
-            child: Image.asset(SightCardCross),
+            child: Image.asset(sightCardCross),
           ),
         ),
       ],

@@ -102,7 +102,28 @@ const TextStyle visitingScreenAppBarTextStyle = TextStyle(
   height: 1.33,
 );
 
+const bnbSelectedItemColor = Color.fromRGBO(59, 62, 91, 1);
 
-const BNB_SelectedItemColor = Color.fromRGBO(59, 62, 91, 1);
+const bnbUnselectedItemColor = Color.fromRGBO(59, 62, 91, 1);
 
-const BNB_UnselectedItemColor = Color.fromRGBO(59, 62, 91, 1);
+const tabBarBackgroundColor = Color.fromRGBO(245, 245, 245, 1);
+
+const tabBarSelevtedItemBackgroundColor = Color.fromRGBO(59, 62, 91, 1);
+
+const tabBarUnselevtedItemBackgroundColor = Color.fromRGBO(245, 245, 245, 1);
+
+const tabBarSeltctedItemTextStyle = TextStyle(
+  color: Color.fromRGBO(255, 255, 255, 1),
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);
+
+const tabBarUnseltctedItemTextStyle = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 0.56),
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);

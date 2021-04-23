@@ -1,8 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/style/default.dart';
 import 'package:places/ui/style/picturesAssets.dart';
+import '../../mocks.dart';
 
 /// Экран "Хочу посетить/Посещенные места"
 class VisitingScreen extends StatefulWidget {
@@ -26,23 +26,23 @@ class _VisitingScreenState extends State<VisitingScreen> {
           iconSize: 24,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: BNB_SelectedItemColor,
-          unselectedItemColor: BNB_UnselectedItemColor,
+          selectedItemColor: bnbSelectedItemColor,
+          unselectedItemColor: bnbUnselectedItemColor,
           items: [
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(BNB_List)),
+              icon: ImageIcon(AssetImage(bnbList)),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(BNB_Map)),
+              icon: ImageIcon(AssetImage(bnbMap)),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(BNB_Heart)),
+              icon: ImageIcon(AssetImage(bnbHeart)),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(BNB_Settings)),
+              icon: ImageIcon(AssetImage(bnbSettings)),
               label: '',
             ),
           ],
@@ -55,18 +55,39 @@ class _VisitingScreenState extends State<VisitingScreen> {
 class _VisitingScreenWantToVisitList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("tab 1"),
-    );
+    return Column(children: [
+      _VisitingScreenTabBar(
+        selectedItem: 0,
+      ),
+      Column(
+        children: [
+          SightCardWantToVizit(
+            sight: mocks[0],
+          ),
+          SightCardWantToVizit(
+            sight: mocks[1],
+          ),
+        ],
+      ),
+    ]);
   }
 }
 
 class _VisitingScreenVisitedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("tab 2"),
-    );
+    return Column(children: [
+      _VisitingScreenTabBar(
+        selectedItem: 1,
+      ),
+      Column(
+        children: [
+          SightCardVizited(
+            sight: mocks[2],
+          ),
+        ],
+      ),
+    ]);
   }
 }
 
@@ -75,7 +96,7 @@ class _VisitingScreenAppBar extends StatelessWidget
   _VisitingScreenAppBar({
     Key key,
   }) : super(key: key);
-  static const double appBarHeight = 108.0;
+  static const double appBarHeight = 56.0;
   final Size _preferredSize = Size.fromHeight(appBarHeight);
   @override
   Size get preferredSize => _preferredSize;
@@ -113,62 +134,85 @@ class _VisitingScreenAppBar extends StatelessWidget
               ),
             ),
           ),
-          Container(
-            constraints: BoxConstraints(
-              minHeight: 52,
-              maxHeight: 52,
-              minWidth: double.infinity,
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(245, 245, 245, 1),
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-              ),
-              margin: EdgeInsets.only(
-                  top: 6,
-                  bottom: 6,
-                  left: defaultEdgeInsets,
-                  right: defaultEdgeInsets),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(59, 62, 91, 1),
-                        borderRadius: BorderRadius.all(Radius.circular(40)),
-                      ),
-                      constraints: BoxConstraints(
-                        minHeight: 40,
-                        maxHeight: 40,
-                        minWidth: 164,
-                        maxWidth: double.infinity,
-                      ),
-                      child: Center(child: Text("Хочу посетить")),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(59, 62, 91, 1),
-                        borderRadius: BorderRadius.all(Radius.circular(40)),
-                      ),
-                      margin: EdgeInsets.only(
-                           left: 1),
-                      constraints: BoxConstraints(
-                        minHeight: 40,
-                        maxHeight: 40,
-                        minWidth: 164,
-                        maxWidth: double.infinity,
-                      ),
-                      child: Center(child: Text("Посетил")),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          //_VisitingScreenTabBar(),
         ],
+      ),
+    );
+  }
+}
+
+class _VisitingScreenTabBar extends StatelessWidget {
+  final int _selectedItem;
+  const _VisitingScreenTabBar({
+    Key key,
+    @required int selectedItem,
+  })  : _selectedItem = selectedItem,
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List tabsLabels = [
+      "Хочу посетить",
+      "Посетил",
+    ];
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: 52,
+        maxHeight: 52,
+        minWidth: double.infinity,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: tabBarBackgroundColor,
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+        ),
+        margin: EdgeInsets.only(
+            top: 6,
+            bottom: 6,
+            left: defaultEdgeInsets,
+            right: defaultEdgeInsets),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            for (var i = 0; i < tabsLabels.length; i++)
+              _visitingScreenTabBarItem(
+                label: tabsLabels[i],
+                selected: (i == _selectedItem),
+              )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Expanded _visitingScreenTabBarItem(
+      {@required String label, @required bool selected}) {
+    Color backgroundColor;
+    TextStyle textStyle;
+    if (selected) {
+      backgroundColor = tabBarSelevtedItemBackgroundColor;
+      textStyle = tabBarSeltctedItemTextStyle;
+    } else {
+      backgroundColor = tabBarUnselevtedItemBackgroundColor;
+      textStyle = tabBarUnseltctedItemTextStyle;
+    }
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+        ),
+        constraints: BoxConstraints(
+          minHeight: 40,
+          maxHeight: 40,
+          minWidth: 164,
+          maxWidth: double.infinity,
+        ),
+        child: Center(
+            child: Text(
+          label,
+          style: textStyle,
+        )),
       ),
     );
   }
