@@ -28,15 +28,15 @@ final List<Sight> mocks = [
 ];
 
 final List<VisitedSight> mocsVisited = [
-  // VisitedSight.fromSight(
-  //   sight: mocks[0],
-  //   visited: "Цель достигнута 12 окт. 2020",
-  // )
+  VisitedSight.fromSight(
+    sight: mocks[0],
+    visited: "Цель достигнута 12 окт. 2020",
+  )
 ];
 
 final List<WantToVisitSight> mocsWantToVisit = [
-  // WantToVisitSight.fromSight(
-  //   sight: mocks[2],
-  //   planned: "Запланировано на 12 окт. 2020",
-  // )
+  WantToVisitSight.fromSight(
+    sight: mocks[2],
+    planned: "Запланировано на 12 окт. 2020",
+  )
 ];
