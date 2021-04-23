@@ -20,15 +20,10 @@ class _SightListScreenState extends State<SightListScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SightCard(
-                sight: mocks[0],
-              ),
-              SightCard(
-                sight: mocks[1],
-              ),
-              SightCard(
-                sight: mocks[2],
-              ),
+              for (var i = 0; i < mocks.length; i++)
+                SightCard(
+                  sight: mocks[i],
+                ),
             ],
           ),
         ),
@@ -41,7 +36,7 @@ class _SightListAppBar extends StatelessWidget implements PreferredSizeWidget {
   _SightListAppBar({
     Key key,
   }) : super(key: key);
-  static const double appBarHeight = 136.0;
+  static const double appBarHeight = 112.0;
   final Size _preferredSize = Size.fromHeight(appBarHeight);
   @override
   Size get preferredSize => _preferredSize;

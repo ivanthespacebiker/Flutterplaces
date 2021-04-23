@@ -94,12 +94,76 @@ const TextStyle infoDescriptionTextStile = TextStyle(
   height: 1.25,
 );
 
+const TextStyle visitedInfoDescriptionTextStile = TextStyle(
+  color: Color.fromRGBO(59, 62, 91, 1),
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  fontStyle: FontStyle.normal,
+  height: 1.25,
+);
+
+const TextStyle visitedInfoVisitedTextStile = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 1),
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);
+
+const TextStyle visitedInfoModeTextStile = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 1),
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);
+
+const TextStyle wantToVisitInfoDescriptionTextStile = TextStyle(
+  color: Color.fromRGBO(59, 62, 91, 1),
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  fontStyle: FontStyle.normal,
+  height: 1.25,
+);
+
+const TextStyle wantToVisitInfoPlannedTextStile = TextStyle(
+  color: Color.fromRGBO(76, 175, 80, 1),
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);
+
+const TextStyle wantToVisitInfoModeTextStile = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 1),
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
+);
+
 const TextStyle visitingScreenAppBarTextStyle = TextStyle(
   color: Color.fromRGBO(37, 40, 73, 1),
   fontSize: 24,
   fontWeight: FontWeight.w500,
   fontStyle: FontStyle.normal,
   height: 1.33,
+);
+
+const TextStyle visitingScreenEmptyTextStyle = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 0.56),
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+  fontStyle: FontStyle.normal,
+  height: 1.33,
+);
+
+const TextStyle visitingScreenEmptyDescriptionTextStyle = TextStyle(
+  color: Color.fromRGBO(124, 126, 146, 0.56),
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.29,
 );
 
 const bnbSelectedItemColor = Color.fromRGBO(59, 62, 91, 1);

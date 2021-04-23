@@ -19,9 +19,9 @@ const String sightDetailsCalendar = "res/pictures/SightDetailsCalendar.png";
 
 const String sightDetailsFavorite = "res/pictures/SightDetailsFavorite.png";
 
-const String listVizitedEmptyBackground = "res/pictures/ListVizitedEmptyBackground.png";
+const String listVisitedEmptyBackground = "res/pictures/ListVisitedEmptyBackground.png";
 
-const String listWantToVizitEmptyBackground = "res/pictures/ListWantToVizitEmptyBackground.png";
+const String listWantToVisitEmptyBackground = "res/pictures/ListWantToVisitEmptyBackground.png";
 
 const String bnbHeart = "res/pictures/BNB_Heart.png";
 

@@ -53,26 +53,31 @@ class SightCard extends StatelessWidget {
 }
 
 /// Карточка списка "Хочу посетить"
-class SightCardWantToVizit extends SightCard {
-  const SightCardWantToVizit({
+class SightCardWantToVisit extends SightCard {
+  @override
+  final WantToVisitSight _sight;
+  const SightCardWantToVisit({
     Key key,
-    @required Sight sight,
-  }) : super(key: key, sight: sight);
+    @required WantToVisitSight sight,
+  })  : _sight = sight,
+        super(key: key, sight: sight);
+
+  static const EdgeInsets _cardsPadding = SightCard._cardsPadding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: SightCard._cardsPadding,
+      padding: _cardsPadding,
       child: Column(
         children: [
           _SightCardPhoto(
             type: _sight.type,
-            rightButtons: _SightCardWantToVizitPhotoRightButtons(),
+            rightButtons: _SightCardWantToVisitPhotoRightButtons(),
           ),
-          _SightCardInfoWantToVizit(
+          _SightCardInfoWantToVisit(
             name: _sight.name,
             details: _sight.details,
-            planed: "",
+            planned: _sight.planned,
           ),
         ],
       ),
@@ -81,26 +86,31 @@ class SightCardWantToVizit extends SightCard {
 }
 
 /// Карточка списка "Посетил"
-class SightCardVizited extends SightCard {
-  const SightCardVizited({
+class SightCardVisited extends SightCard {
+  @override
+  final VisitedSight _sight;
+  const SightCardVisited({
     Key key,
-    @required Sight sight,
-  }) : super(key: key, sight: sight);
+    @required VisitedSight sight,
+  })  : _sight = sight,
+        super(key: key, sight: sight);
+
+  static const EdgeInsets _cardsPadding = SightCard._cardsPadding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: SightCard._cardsPadding,
+      padding: _cardsPadding,
       child: Column(
         children: [
           _SightCardPhoto(
             type: _sight.type,
-            rightButtons: _SightCardVizitedPhotoRightButtons(),
+            rightButtons: _SightCardVisitedPhotoRightButtons(),
           ),
-          _SightCardInfoVizited(
+          _SightCardInfoVisited(
             name: _sight.name,
             details: _sight.details,
-            visited: "",
+            visited: _sight.visited,
           ),
         ],
       ),
@@ -195,8 +205,8 @@ class _SightCardPhotoRightButtons extends StatelessWidget {
 }
 
 /// кнопки справа для карточки "Хочу посетить"
-class _SightCardWantToVizitPhotoRightButtons extends StatelessWidget {
-  const _SightCardWantToVizitPhotoRightButtons({
+class _SightCardWantToVisitPhotoRightButtons extends StatelessWidget {
+  const _SightCardWantToVisitPhotoRightButtons({
     Key key,
   }) : super(key: key);
 
@@ -230,8 +240,8 @@ class _SightCardWantToVizitPhotoRightButtons extends StatelessWidget {
 }
 
 /// кнопки справа для карточки "Посетил"
-class _SightCardVizitedPhotoRightButtons extends StatelessWidget {
-  const _SightCardVizitedPhotoRightButtons({
+class _SightCardVisitedPhotoRightButtons extends StatelessWidget {
+  const _SightCardVisitedPhotoRightButtons({
     Key key,
   }) : super(key: key);
 
@@ -286,6 +296,7 @@ class _SightCardInfo extends StatelessWidget {
   static const EdgeInsets _infoShortDescriptionMargin = EdgeInsets.only(
     left: defaultEdgeInsets,
     right: defaultEdgeInsets,
+    bottom: defaultEdgeInsets,
   );
   static const Radius _infoBottomRadius = Radius.circular(12);
 
@@ -307,11 +318,11 @@ class _SightCardInfo extends StatelessWidget {
           Container(
             margin: _infoDescriptionMargin,
             constraints: BoxConstraints(
-              minHeight: 40,
+              minHeight: 20,
             ),
             alignment: Alignment.topLeft,
             child: Text(
-              _details,
+              _name,
               textAlign: TextAlign.left,
               style: infoDescriptionTextStile,
             ),
@@ -320,7 +331,7 @@ class _SightCardInfo extends StatelessWidget {
             margin: _infoShortDescriptionMargin,
             alignment: Alignment.topLeft,
             child: Text(
-              _name,
+              _details,
               textAlign: TextAlign.left,
               style: infoShortDescriptionTextStile,
             ),
@@ -332,25 +343,165 @@ class _SightCardInfo extends StatelessWidget {
 }
 
 /// часть карточки "Хочу посетить" с информацией
-class _SightCardInfoWantToVizit extends _SightCardInfo {
-  final String _planed;
-  const _SightCardInfoWantToVizit({
+class _SightCardInfoWantToVisit extends _SightCardInfo {
+  final String _planned;
+  const _SightCardInfoWantToVisit({
     Key key,
     @required String details,
     @required String name,
-    @required String planed,
-  })  : _planed = planed,
+    @required String planned,
+  })  : _planned = planned,
         super(key: key, details: details, name: name);
+
+  static const double _infoMinHeight = 102;
+  static const EdgeInsets _infoDescriptionMargin =
+      _SightCardInfo._infoDescriptionMargin;
+  static const EdgeInsets _infoShortDescriptionMargin =
+      _SightCardInfo._infoShortDescriptionMargin;
+  static const Radius _infoBottomRadius = _SightCardInfo._infoBottomRadius;
+
+  static const EdgeInsets _infoShortVisitedMargin = EdgeInsets.only(
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
+    top: 2,
+    bottom: 2,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: _infoMinHeight,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: _infoBottomRadius,
+          bottomRight: _infoBottomRadius,
+        ),
+        color: infoBackgroundColor,
+      ),
+      child: Column(
+        children: [
+          Container(
+            margin: _infoDescriptionMargin,
+            constraints: BoxConstraints(
+              minHeight: 20,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _name,
+              textAlign: TextAlign.left,
+              style: wantToVisitInfoDescriptionTextStile,
+            ),
+          ),
+          Container(
+            margin: _infoShortVisitedMargin,
+            constraints: BoxConstraints(
+              minHeight: 28,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _planned,
+              textAlign: TextAlign.left,
+              style: wantToVisitInfoPlannedTextStile,
+            ),
+          ),
+          Container(
+            margin: _infoShortDescriptionMargin,
+            constraints: BoxConstraints(
+              minHeight: 18,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _details,
+              textAlign: TextAlign.left,
+              style: wantToVisitInfoModeTextStile,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// часть карточки "Посетил" с информацией
-class _SightCardInfoVizited extends _SightCardInfo {
+class _SightCardInfoVisited extends _SightCardInfo {
   final String _visited;
-  const _SightCardInfoVizited({
+  const _SightCardInfoVisited({
     Key key,
     @required String details,
     @required String name,
     @required String visited,
   })  : _visited = visited,
         super(key: key, details: details, name: name);
+
+  static const double _infoMinHeight = 102;
+  static const EdgeInsets _infoDescriptionMargin =
+      _SightCardInfo._infoDescriptionMargin;
+  static const EdgeInsets _infoShortDescriptionMargin =
+      _SightCardInfo._infoShortDescriptionMargin;
+  static const Radius _infoBottomRadius = _SightCardInfo._infoBottomRadius;
+
+  static const EdgeInsets _infoShortVisitedMargin = EdgeInsets.only(
+    left: defaultEdgeInsets,
+    right: defaultEdgeInsets,
+    top: 2,
+    bottom: 2,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: _infoMinHeight,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: _infoBottomRadius,
+          bottomRight: _infoBottomRadius,
+        ),
+        color: infoBackgroundColor,
+      ),
+      child: Column(
+        children: [
+          Container(
+            margin: _infoDescriptionMargin,
+            constraints: BoxConstraints(
+              minHeight: 20,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _name,
+              textAlign: TextAlign.left,
+              style: visitedInfoDescriptionTextStile,
+            ),
+          ),
+          Container(
+            margin: _infoShortVisitedMargin,
+            constraints: BoxConstraints(
+              minHeight: 28,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _visited,
+              textAlign: TextAlign.left,
+              style: visitedInfoVisitedTextStile,
+            ),
+          ),
+          Container(
+            margin: _infoShortDescriptionMargin,
+            constraints: BoxConstraints(
+              minHeight: 18,
+            ),
+            alignment: Alignment.topLeft,
+            child: Text(
+              _details,
+              textAlign: TextAlign.left,
+              style: visitedInfoModeTextStile,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

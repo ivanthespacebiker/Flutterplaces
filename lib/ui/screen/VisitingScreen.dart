@@ -55,39 +55,96 @@ class _VisitingScreenState extends State<VisitingScreen> {
 class _VisitingScreenWantToVisitList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      _VisitingScreenTabBar(
-        selectedItem: 0,
-      ),
-      Column(
-        children: [
-          SightCardWantToVizit(
-            sight: mocks[0],
+    return Column(
+      children: [
+        _VisitingScreenTabBar(
+          selectedItem: 0,
+        ),
+        if (mocsWantToVisit.length != 0)
+          Column(
+            children: [
+              for (var i = 0; i < mocsWantToVisit.length; i++)
+                SightCardWantToVisit(sight: mocsWantToVisit[i])
+            ],
           ),
-          SightCardWantToVizit(
-            sight: mocks[1],
+        if (mocsWantToVisit.length == 0)
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(bottom: 32),
+                  child: SizedBox(
+                      height: 64,
+                      width: 64,
+                      child: Image.asset(listWantToVisitEmptyBackground)),
+                ),
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    "Пусто",
+                    style: visitingScreenEmptyTextStyle,
+                  ),
+                ),
+                Text(
+                  "Отмечайте понравившиеся\nместа и они появиятся здесь.",
+                  style: visitingScreenEmptyDescriptionTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
-        ],
-      ),
-    ]);
+      ],
+    );
   }
 }
 
 class _VisitingScreenVisitedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      _VisitingScreenTabBar(
-        selectedItem: 1,
-      ),
-      Column(
-        children: [
-          SightCardVizited(
-            sight: mocks[2],
+    return Column(
+      children: [
+        _VisitingScreenTabBar(
+          selectedItem: 1,
+        ),
+        if (mocsVisited.length != 0)
+          Column(
+            children: [
+              for (var i = 0; i < mocsVisited.length; i++)
+                SightCardVisited(sight: mocsVisited[i])
+            ],
           ),
-        ],
-      ),
-    ]);
+        if (mocsVisited.length == 0)
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(bottom: 32),
+                  child: SizedBox(
+                      height: 64,
+                      width: 64,
+                      child: Image.asset(listVisitedEmptyBackground)),
+                ),
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    "Пусто",
+                    style: visitingScreenEmptyTextStyle,
+                  ),
+                ),
+                Text(
+                  "Завершите маршрут,\nчтобы место попало сюда.",
+                  style: visitingScreenEmptyDescriptionTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
   }
 }
 
@@ -134,6 +191,10 @@ class _VisitingScreenAppBar extends StatelessWidget
               ),
             ),
           ),
+          // в последствии планирую таббар именно в аппбар переместить,
+          // кажется так будет правильно. но на данный момент я до конца не понимаю,
+          // как сделать "переключение" айтемов в таком виде, поэтому
+          // временно перенес верстку в сами табы
           //_VisitingScreenTabBar(),
         ],
       ),
