@@ -15,20 +15,15 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: SightListAppBar(),
+      appBar: _SightListAppBar(),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SightCard(
-                sight: mocks[0],
-              ),
-              SightCard(
-                sight: mocks[1],
-              ),
-              SightCard(
-                sight: mocks[2],
-              ),
+              for (var i = 0; i < mocks.length; i++)
+                SightCard(
+                  sight: mocks[i],
+                ),
             ],
           ),
         ),
@@ -37,9 +32,14 @@ class _SightListScreenState extends State<SightListScreen> {
   }
 }
 
-class SightListAppBar extends PreferredSize {
-  static const double appBarHeight = 136.0;
+class _SightListAppBar extends StatelessWidget implements PreferredSizeWidget {
+  _SightListAppBar({
+    Key key,
+  }) : super(key: key);
+  static const double appBarHeight = 112.0;
   final Size _preferredSize = Size.fromHeight(appBarHeight);
+  @override
+  Size get preferredSize => _preferredSize;
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +58,10 @@ class SightListAppBar extends PreferredSize {
           child: Text(
             'Список \nинтересных мест',
             textAlign: TextAlign.left,
-            style: appBarTextStyle,
+            style: sightListAppBarTextStyle,
           ),
         ),
       ),
     );
   }
-
-  @override
-  Size get preferredSize => _preferredSize;
 }
